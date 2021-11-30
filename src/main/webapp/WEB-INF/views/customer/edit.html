@@ -24,6 +24,18 @@
             <td><input type="text" th:field="*{lastName}"/></td>
         </tr>
         <tr>
+            <td>Province:</td>
+            <td>
+                <select name="provinces">
+                    <option th:each="p : ${provincesList}"
+                            th:value="${p.id}"
+                            th:text="${p.name}"
+                            th:selected="(${customer.get().provinces}) and (${p.id} == ${customer.get().provinces.id})"></option>
+
+                </select>
+            </td>
+        </tr>
+        <tr>
             <td></td>
             <td><input type="submit" value="Update customer"></td>
         </tr>

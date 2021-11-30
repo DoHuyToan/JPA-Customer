@@ -11,8 +11,7 @@
     <title>$Title$</title>
   </head>
   <body>
-  <p>
-    <a href="/customers">Home</a>
-  </p>
+  <p><a href="/customers">List of Customers</a></p>
+  <p><a href="/provinces">List of Provinces</a></p>
   </body>
 </html>
