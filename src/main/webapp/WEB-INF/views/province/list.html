@@ -5,7 +5,8 @@
     <title>Provinces</title>
 </head>
 <body>
-<a href="/create-provinces">Create new provinces</a>
+<h2><a href="/customers">List of Customers</a></h2>
+<a href="/create-province">Create new provinces</a>
 <h1>Provinces</h1>
 <table border="1">
     <tr>
@@ -15,11 +16,9 @@
     </tr>
     <th:block th:each="provinces : ${provinces}">
         <tr>
-            <td ><a th:href="@{/view-provinces/__${provinces.id}__ }" th:text="${provinces.name}"></a></td>
-            <td><a th:href="@{/edit-provinces/__${provinces.id}__ }">Edit</a></td>
-            <td><a th:href="@{/delete-provinces/__${provinces.id}__ }">Delete</a></td>
-            <td></td>
-
+            <td ><a th:href="@{/view-province/__${provinces.id}__ }" th:text="${provinces.name}"></a></td>
+            <td><a th:href="@{/edit-province/__${provinces.id}__ }">Edit</a></td>
+            <td><a th:href="@{/delete-province/__${provinces.id}__ }">Delete</a></td>
         </tr>
     </th:block>
 </table>

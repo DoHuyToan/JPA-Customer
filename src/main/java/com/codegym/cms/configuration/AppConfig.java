@@ -37,6 +37,7 @@ import java.util.Properties;
 @EnableWebMvc
 @EnableTransactionManagement
 @EnableJpaRepositories("com.codegym.cms.repository")
+// @ComponentScan: quét các annotation khai báo như: @Service, @Entity
 @ComponentScan("com.codegym.cms")
 public class AppConfig implements WebMvcConfigurer, ApplicationContextAware {
 
@@ -82,6 +83,7 @@ public class AppConfig implements WebMvcConfigurer, ApplicationContextAware {
     }
 
     @Bean
+    // quét nơi chứa các class khai báo entity
     public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
         LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();
         em.setDataSource(dataSource());
@@ -122,4 +124,11 @@ public class AppConfig implements WebMvcConfigurer, ApplicationContextAware {
     public void addFormatters(FormatterRegistry registry) {
         registry.addFormatter(new ProvinceFormatter(applicationContext.getBean(ProvinceService.class)));
     }
+
+    // nếu khai báo @Bean ở đây thì bên CustomerService ta ko cần @Service
+    // mà vẫn sử dụng đc @Autowired để tiêm customerService
+//    @Bean
+//    public ICustomerService customerService(){
+//        return new CustomerService();
+//    }
 }

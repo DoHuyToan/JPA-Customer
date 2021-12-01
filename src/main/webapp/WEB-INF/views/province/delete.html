@@ -10,12 +10,12 @@
 <p>
   <a href="/provinces">Province list</a>
 </p>
-<form th:action="@{/delete-provinces}" th:object="${provinces}" method="post">
+<form th:action="@{/delete-province}" th:object="${province}" method="post">
   <input th:type="hidden" name="id" th:field="*{id}">
   <table>
     <tr>
       <td>Name:</td>
-      <td th:text="${provinces.name}"></td>
+      <td th:text="${province.name}"></td>
     </tr>
     <tr>
       <td></td>

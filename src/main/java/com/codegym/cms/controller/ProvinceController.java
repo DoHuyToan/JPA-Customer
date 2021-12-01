@@ -25,7 +25,7 @@ public class ProvinceController {
     @Autowired
     private CustomerService customerService;
 
-    @GetMapping("/view-provinces/{id}")
+    @GetMapping("/view-province/{id}")
     public ModelAndView viewProvince(@PathVariable("id") Long id){
         Optional<Provinces> provinceOptional = provinceService.findById(id);
         if(!provinceOptional.isPresent()){
@@ -50,16 +50,16 @@ public class ProvinceController {
     @GetMapping("/create-province")
     public ModelAndView showCreatForm(){
         ModelAndView modelAndView = new ModelAndView("/province/create");
-        modelAndView.addObject("province", new Provinces());
+        modelAndView.addObject("provinces", new Provinces());
         return modelAndView;
     }
 
     @PostMapping("/create-province")
-    public ModelAndView saveProvince(@ModelAttribute("province") Provinces provinces){
+    public ModelAndView saveProvince(@ModelAttribute("provinces") Provinces provinces){
         provinceService.save(provinces);
 
         ModelAndView modelAndView = new ModelAndView("/province/create");
-        modelAndView.addObject("province", new Provinces());
+        modelAndView.addObject("provinces", new Provinces());
         modelAndView.addObject("message", "New province created successfully!");
         return modelAndView;
     }

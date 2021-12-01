@@ -5,6 +5,7 @@
     <title>Title</title>
 </head>
 <body>
+<h2><a href="/provinces">List of Provinces</a></h2>
 <a href="/create-customer">Create new customer</a>
 <h1>Customers</h1>
 <table border="1">
@@ -20,6 +21,7 @@
             <td th:text="${customer.firstName}"></td>
             <td th:text="${customer.lastName}"></td>
             <td th:if="${customer.provinces}" th:text="${customer.provinces.name}"></td>
+<!--            cho unless vào để tránh dữ liễu rỗng-->
             <td th:unless="${customer.provinces}"></td>
             <td><a th:href="@{/edit-customer/__${customer.id}__ }">Edit</a></td>
             <td><a th:href="@{/delete-customer/__${customer.id}__ }">Delete</a></td>

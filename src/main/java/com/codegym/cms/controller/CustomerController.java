@@ -22,6 +22,10 @@ public class CustomerController {
     @Autowired
     private IProvinceService provinceService;
 
+//  giá trị của trường <select> sẽ là id của province,
+//  do đó, chúng ta cần chuyển đổi từ id của province sang object của province.
+//  Để thực hiện việc này, chúng ta có thể sử dụng converter hoặc formatter
+//  Đăng ký formatter bằng cách override phương thức addFormatter() trong lớp ApplicationConfig:
     @ModelAttribute("provincesList")
     public Iterable<Provinces> provinces(){
         return provinceService.findAll();
